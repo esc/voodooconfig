@@ -56,6 +56,11 @@ class VoodooConfig(collections.MutableMapping):
     def __iter__(self):
         return iter(self.options)
 
+    def update(self, new_options):
+        self.validate_options(new_options)
+        straightend = self.straighten(new_options)
+        self.inject(straightend)
+
     def inject(self, new_options):
         for option in self.options:
             if option in new_options and new_options[option] is not None:
