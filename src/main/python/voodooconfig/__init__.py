@@ -80,8 +80,8 @@ class VoodooConfig(collections.MutableMapping):
             return True
 
     def validate_options(self, loaded_options):
-        valid_values_hyphen = {(k.replace('_', '-')
-                                for k in self.options)}
+        valid_values_hyphen = set((k.replace('_', '-')
+                                   for k in self.options))
         valid_values_underscore = set(self.options)
         valid_values = valid_values_hyphen.union(valid_values_underscore)
         unexpected_values = set(loaded_options).difference(valid_values)
