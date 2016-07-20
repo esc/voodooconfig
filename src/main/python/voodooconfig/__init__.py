@@ -66,7 +66,7 @@ class VoodooConfig(collections.MutableMapping):
         if not all(self.values()):
             missing = dict(((k, v) for k, v in self.options.items() if not v))
             raise MissingConfigValues(
-                'Some config options are missing:\n{0}'.format(missing))
+                'Some config values are missing:\n{0}'.format(missing))
         else:
             return True
 
