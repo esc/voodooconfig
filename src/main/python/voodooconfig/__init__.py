@@ -17,11 +17,12 @@ class MissingConfigValues(Exception):
 
 class VoodooConfig(collections.MutableMapping):
 
-    def __init__(self):
+    def __init__(self, **kwargs):
         for option, default in self.options.items():
             self[option] = (default()
                             if hasattr(default, '__call__')
                             else default)
+        self.inject(kwargs)
 
     def __str__(self):
         return pp.pformat(dict(self))
@@ -63,8 +64,9 @@ class VoodooConfig(collections.MutableMapping):
 
     def is_complete(self):
         if not all(self.values()):
+            missing = dict(((k, v) for k, v in self.options.items() if not v))
             raise MissingConfigValues(
-                'Some config options are missing:\n{0}'.format(self))
+                'Some config options are missing:\n{0}'.format(missing))
         else:
             return True
 

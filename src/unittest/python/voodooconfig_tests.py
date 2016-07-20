@@ -21,6 +21,10 @@ class TestVoodooConfig(unittest.TestCase):
         self.assertEqual(config.default_option, 'DEFAULT_VALUE')
         self.assertEqual(config.missing_option, None)
 
+    def test_init_processes_kwargs(self):
+        config = MyConfig(missing_option='NEW_VALUE')
+        self.assertEqual(config.missing_option, 'NEW_VALUE')
+
     def test_class_name(self):
         self.assertEqual(MyConfig()._class_name, 'MyConfig')
 
