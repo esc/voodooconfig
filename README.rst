@@ -22,13 +22,15 @@ and dictionary based access to the options stored within. So for example the
 following are equivalent::
 
     >>> config['api_key']
+    'THEKEY'
     >>> config.api_key
+    'THEKEY'
 
 This allows you to fill the class in a reflection based style, but at the same
 time access the options pythonically::
 
 
-    >>> loaded_config = {'api_key'}
+    >>> loaded_config = {'api_key': 'NEW_KEY'}
     >>> for k,v in loaded_config:
     >>>     config[k] = v
 
