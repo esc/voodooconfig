@@ -1,4 +1,6 @@
 from pybuilder.core import use_plugin, init
+from pybuilder.vcs import count_travis
+
 
 use_plugin("python.core")
 use_plugin("python.unittest")
@@ -10,6 +12,7 @@ use_plugin("python.distutils")
 
 name = "voodooconfig"
 default_task = "publish"
+version = count_travis()
 
 
 @init
