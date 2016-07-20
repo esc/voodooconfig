@@ -14,4 +14,19 @@ install:
   - pyb -X install_dependencies
 
 script:
-    - pyb -X
+  - pyb -X
+
+before_deploy:
+  - pyb -X package
+
+deploy:
+  provider: pypi
+  user: esc
+  distributions: sdist
+  skip_cleanup: true
+  password:
+    secure: "4FSuflgDV8yg4Kx2F1NyGSH5Chn4wy/KPQ2iNGLLDqKDsZRo2CvW1M+XK0U9QEofc999BJBUt567a84jqk+gEfLXjVl4jc/cLEONLZOnXkWcuhhgSqHoVPmET0JGEFDg1gdDq4Yke5o2TvMsCeXsSiPNide+/J67335JAYvwbIhsJvfMFWiIlzHlCyTx9DZpT91r81nFQht4rgj3RGJh6L4VUP9WUJEQUkb1Pbb1Y0WznG+cwSNBR68eQCFE4LtN1uPVsp0VudMvheBnX+nsb5/Updgf6MHx/r4eCj1i1Lqi1QHySOv4XizAdLtvK0kU3W8nmvlA2CSTiToVZhPeaNs07Jp71WlNFpwGEGlJJXdItqisyhRk/xDXayjEI+OYtT8JqQ19ssaI4ukm8g3lTXC0kaFfyFYwqEA+8QDJSRfK10i5SDEjjSMvEt3PRHwAbKhQUHN7d4POgLZbX3upKzCiRUVQX7OYPKVl48wahtYG5qiOHL7P9YZj1etr8nfqWidHESv9tzY6+fsg1pOo8x45KF9FUNgvId1eAfEtVmhK4tzWbpEHaUE+5CBC8utEZfypDKUgGtsrIsE0WLTPr6vQ5efQgj0gWtuMvSwcWz5gBQVBd2QVROH1+rCs4yx+VhelE2eDLcl63EtL7gWtBNx4Fdka2u6Cs2Dg4LCzhVw="
+  on:
+    repo: esc/voodooconfig
+    python: '3.5'
+    branch: master
