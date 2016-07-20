@@ -18,6 +18,5 @@ version = count_travis()
 
 @init
 def set_properties(project):
-    project.depends_on('pyyaml')
     project.get_property('filter_resources_glob').extend(
         ['**/voodooconfig/__init__.py'])

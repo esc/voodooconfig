@@ -1,6 +1,5 @@
 import collections
 import pprint
-import yaml
 
 __version__ = '${version}'
 
@@ -62,6 +61,11 @@ class VoodooConfig(collections.MutableMapping):
             if option in new_options and new_options[option] is not None:
                 self[option] = new_options[option]
 
+    @staticmethod
+    def straighten(config):
+        return dict(((k.replace('-', '_'), v)
+                     for k, v in config.items()))
+
     def is_complete(self):
         if not all(self.values()):
             missing = dict(((k, v) for k, v in self.options.items() if not v))
@@ -82,8 +86,3 @@ class VoodooConfig(collections.MutableMapping):
                 .format(list(unexpected_values)))
         else:
             return True
-
-    def load_config(self, config_path):
-        basic_loaded_config = yaml.load(config_path)
-        return dict(((k.replace('-', '_'), v)
-                     for k, v in basic_loaded_config.items()))
