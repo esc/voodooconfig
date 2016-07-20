@@ -45,6 +45,11 @@ class VoodooConfig(collections.MutableMapping):
             '%s does not support __delitem__ or derivatives'
             % self._class_name)
 
+    def __delattr__(self, key):
+        raise NotImplementedError(
+            '%s does not support __delattr__ or derivatives'
+            % self._class_name)
+
     def __len__(self):
         return len(self.options)
 
