@@ -93,12 +93,12 @@ class TestVoodooConfig(unittest.TestCase):
         with self.assertRaises(UnexpectedConfigValues):
             config.validate_options(new_options)
 
-    def test_validate_options_suceeds_for_option_with_hyphen(self):
+    def test_validate_options_succeeds_for_option_with_hyphen(self):
         config = MyConfig()
         new_options = {'missing-option': 'WITH_HYPHEN'}
         self.assertTrue(config.validate_options(new_options))
 
-    def test_validate_options_suceeds_for_known_option(self):
+    def test_validate_options_succeeds_for_known_option(self):
         config = MyConfig()
         new_options = {'default_option': 'NEW_VALUE',
                        'lambda_option': 'NEW_VALUE',
