@@ -56,7 +56,7 @@ class VoodooConfig(collections.MutableMapping):
     def __iter__(self):
         return iter(self.options)
 
-    def merge(self, new_options):
+    def update(self, new_options):
         self.validate_options(new_options)
         straightend = self.straighten(new_options)
         self.inject(straightend)

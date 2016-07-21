@@ -71,6 +71,12 @@ class TestVoodooConfig(unittest.TestCase):
         self.assertEqual(sorted([i for i in MyConfig()]),
                          ['default_option', 'lambda_option', 'missing_option'])
 
+    def test_update_succeeds_with_new_settings(self):
+        config = MyConfig()
+        new_options = {'missing_option': 'NEW_VALUE_FOR_MISSING'}
+        config.update(new_options)
+        self.assertEqual(config.missing_option, 'NEW_VALUE_FOR_MISSING')
+
     def test_inject(self):
         config = MyConfig()
         new_options = {'missing_option': 'NEW_VALUE_FOR_MISSING'}
