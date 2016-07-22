@@ -56,6 +56,9 @@ class VoodooConfig(collections.MutableMapping):
     def __iter__(self):
         return iter(self.options)
 
+    def __contains__(self, value):
+        return value.replace('-', '_') in self.options
+
     def update(self, new_options):
         self.validate_options(new_options)
         straightend = self.straighten(new_options)

@@ -71,6 +71,12 @@ class TestVoodooConfig(unittest.TestCase):
         self.assertEqual(sorted([i for i in MyConfig()]),
                          ['default_option', 'lambda_option', 'missing_option'])
 
+    def test_contains(self):
+        self.assertTrue('default_option' in MyConfig())
+
+    def test_contains_straightens(self):
+        self.assertTrue('default-option' in MyConfig())
+
     def test_update_succeeds_with_new_settings(self):
         config = MyConfig()
         new_options = {'missing_option': 'NEW_VALUE_FOR_MISSING'}
