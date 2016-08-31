@@ -10,8 +10,7 @@ command-line interfaces.
 Example
 -------
 
-.. include:: example.py
-   :literal:
+see: `example.py <example.py>`_
 
 What Problem does this Solve?
 -----------------------------
