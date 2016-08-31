@@ -21,7 +21,7 @@ class VoodooConfig(collections.MutableMapping):
             self[option] = (default()
                             if hasattr(default, '__call__')
                             else default)
-        self.inject(kwargs)
+        self._inject(kwargs)
 
     def __str__(self):
         return pp.pformat(dict(self))
@@ -64,7 +64,7 @@ class VoodooConfig(collections.MutableMapping):
         straightend = self.straighten(new_options)
         self.inject(straightend)
 
-    def inject(self, new_options):
+    def _inject(self, new_options):
         for option in self.options:
             if option in new_options and new_options[option] is not None:
                 self[option] = new_options[option]
