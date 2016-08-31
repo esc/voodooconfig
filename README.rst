@@ -4,7 +4,7 @@ voodooconfig
 .. image:: https://travis-ci.org/esc/voodooconfig.svg?branch=master
       :target: https://travis-ci.org/esc/voodooconfig
 
-Ancillary library to process and hold a set of options when programming
+Ancilliary library to process and hold a set of options when programming
 command-line interfaces.
 
 Example
