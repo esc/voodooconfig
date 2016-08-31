@@ -86,7 +86,7 @@ class TestVoodooConfig(unittest.TestCase):
     def test_inject(self):
         config = MyConfig()
         new_options = {'missing_option': 'NEW_VALUE_FOR_MISSING'}
-        config.inject(new_options)
+        config._inject(new_options)
         self.assertEqual(config.missing_option, 'NEW_VALUE_FOR_MISSING')
 
     def test_is_complete_fails_if_incomplete(self):
