@@ -41,9 +41,9 @@ Mindset
 -------
 
 It is a super-simple utility with lots of flexibility. I decided to publish it
-as seperate package since I have been solving this exact same problem again and
-again over the years and didn't want to keep re-inventing the wheel everytime.
-The interface is also super simple so that it can be comined with any of the
+as separate package since I have been solving this exact same problem again and
+again over the years and didn't want to keep re-inventing the wheel every time.
+The interface is also super simple so that it can be combined with any of the
 myriad of command-line interface tools that exist in Python. At the core,
 options are just a mapping/dictionary so you can use those to insert values
 and/or export the options in a format suitable for processing by subsequent
@@ -53,7 +53,7 @@ Limitations
 -----------
 
 * Currently it kinda uses YAML as config-file syntax but that can be adapted.
-* There is no type-checking or parameter valudation.
+* There is no type-checking or parameter validation.
 * There is no way to declare required/optional options and any complex
   relationship between options, e.g. mutually exclusivity, can not be declared.
 
