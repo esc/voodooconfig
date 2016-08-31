@@ -7,6 +7,12 @@ voodooconfig
 Ancillary library to process and hold a set of options when programming
 command-line interfaces.
 
+Example
+-------
+
+.. include:: example.py
+   :literal:
+
 What Problem does this Solve?
 -----------------------------
 
