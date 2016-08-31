@@ -62,7 +62,7 @@ class VoodooConfig(collections.MutableMapping):
     def update(self, new_options):
         self.validate_options(new_options)
         straightend = self.straighten(new_options)
-        self.inject(straightend)
+        self._inject(straightend)
 
     def _inject(self, new_options):
         for option in self.options:
