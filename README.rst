@@ -12,6 +12,13 @@ Example
 
 see: `example.py <example.py>`_
 
+Installation
+------------
+
+Install via PyPi::
+
+    $ pip install voodooconfig
+
 What Problem does this Solve?
 -----------------------------
 
